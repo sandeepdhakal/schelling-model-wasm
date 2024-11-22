@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Visualising Schelling's Segregation Model</title>
+
+    <script src="js/wasm_exec.js"></script>
+    <script
+      src="https://cdn.plot.ly/plotly-2.35.2.min.js"
+      charset="utf-8"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+    <script type="text/javascript" src="js/schelling.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <div class="row">
+      <div id="params" class="col-12 col-6-md col-4-lg">
+        <h2>Model Parameters</h2>
+        <p>
+          We will run the simulation with the following params:<br />
+          1000 agents, 10 neighbours
+        </p>
+        <label for="happy_ratio"
+          >Neighbours of same type required to be happy:</label
+        ><br />
+        <input
+          type="range"
+          id="happy_ratio"
+          name="happy_ratio"
+          list="ratios"
+          min="3"
+          max="7"
+        />
+
+        <datalist id="ratios">
+          <option value="3" label="3"></option>
+          <option value="4" label="4"></option>
+          <option value="5" label="5"></option>
+          <option value="5" label="6"></option>
+          <option value="7" label="7"></option>
+        </datalist>
+
+        <h2>Visualising the Simulation Output</h2>
+        <p>Note that clicking on each button will run a new simulation.</p>
+
+        <div id="controls">
+          <button
+            id="observable"
+            class="button primary"
+            onClick="sim_with_observable()"
+          >
+            Observable Plot
+          </button>
+          <button
+            id="plotly"
+            class="button primary"
+            onClick="sim_with_plotly()"
+          >
+            Plotly
+          </button>
+          <span id="loader" class="loader"></span>
+        </div>
+      </div>
+
+      <div id="myplot" class="auto"></div>
+    </div>
+  </body>
+</html>

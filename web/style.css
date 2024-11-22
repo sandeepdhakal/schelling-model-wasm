@@ -1,0 +1,47 @@
+datalist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  writing-mode: horizontal-tb;
+  width: 200px;
+}
+
+option {
+  padding: 0;
+}
+
+body {
+  padding: 10px;
+}
+
+input[type="range"] {
+  width: 200px;
+  margin: 0;
+}
+
+.loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid black; /* Blue */
+  border-radius: 50%;
+  width: 50;
+  height: 50;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+
+button {
+  height: 50;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#controls {
+  display: flex;
+}
