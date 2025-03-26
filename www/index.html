@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -8,8 +9,6 @@
       src="https://cdn.plot.ly/plotly-2.35.2.min.js"
       charset="utf-8"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
     <script type="text/javascript" src="js/schelling.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/chota@latest" />
     <link rel="stylesheet" type="text/css" href="style.css" />
@@ -18,13 +17,21 @@
   <body>
     <div class="row">
       <div id="params" class="col-12 col-6-md col-4-lg">
+      <h1>About this tool</h1>
+        <p>This is an experimental tool I built using Go and WebAssembly to run simulations on the browser without a backend server.<p>
+        <p>You can use this tool to run simulations of the well-known
+          <a href="https://en.wikipedia.org/wiki/Schelling%27s_model_of_segregation">Scheling's segregation model</a>.
+        <p>
+        <p>For more information about how I wrote this tool, read <a href="https://sandeepdhakal.xyz/posts/client-side-abms-with-go/">this blog post</a>.</p>
+
         <h2>Model Parameters</h2>
+        <p>Schelling's model consists of a number of agents of two types <i>A</i> and <i>B</i>; these agents migrate if they're unhappy. They are happy only if <i>n</i> of their neighbours are of the same type.</p>
         <p>
           We will run the simulation with the following params:<br />
-          1000 agents, 10 neighbours
+          1000 agents, max 10 neighbours for each agent.
         </p>
         <label for="happy_ratio"
-          >Neighbours of same type required to be happy:</label
+          >Below you can select the number of neighbours of the same type required for the agents to be happy in the simulation:</label
         ><br />
         <input
           type="range"
@@ -44,22 +51,23 @@
         </datalist>
 
         <h2>Visualising the Simulation Output</h2>
-        <p>Note that clicking on each button will run a new simulation.</p>
+        <p>Click on the <strong>Run Simulation</strong> button below to run a new simulation and visualise the result.<p>
+        <p><i>Note that clicking on each button will run a new simulation.</i></p>
 
         <div id="controls">
-          <button
-            id="observable"
-            class="button primary"
-            onClick="sim_with_observable()"
-          >
-            Observable Plot
-          </button>
+          <!-- <button -->
+            <!-- id="observable" -->
+            <!-- class="button primary" -->
+            <!-- onClick="sim_with_observable()" -->
+          <!-- > -->
+            <!-- Observable Plot -->
+          <!-- </button> -->
           <button
             id="plotly"
             class="button primary"
             onClick="sim_with_plotly()"
           >
-            Plotly
+            Run Simulation
           </button>
           <span id="loader" class="loader"></span>
         </div>

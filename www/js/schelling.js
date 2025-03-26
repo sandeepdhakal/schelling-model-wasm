@@ -216,7 +216,7 @@ function sim_and_vis(plot_type) {
   ns = parseInt(document.getElementById("happy_ratio").value);
   nr = 10;
 
-  document.getElementById("observable").disabled = true;
+  // document.getElementById("observable").disabled = true;
   document.getElementById("plotly").disabled = true;
   document.getElementById("loader").style.display = "inline-block";
 
@@ -229,16 +229,15 @@ function sim_and_vis(plot_type) {
       plotly_animated(e.data);
     }
 
-    document.getElementById("observable").disabled = false;
+    // document.getElementById("observable").disabled = false;
     document.getElementById("plotly").disabled = false;
     document.getElementById("loader").style.display = "none";
   };
-  console.log("moving on");
 }
 
-function sim_with_observable() {
-  sim_and_vis("observable");
-}
+// function sim_with_observable() {
+//   sim_and_vis("observable");
+// }
 
 function sim_with_plotly() {
   sim_and_vis("plotly");
